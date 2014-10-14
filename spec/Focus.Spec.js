@@ -1,3 +1,28 @@
+feature("Leaving A Masked Input With retainPartial",function(){
+	scenario("All placeholders filled",function(){
+		given("a mask with two placeholders",function(){
+			input.mask("99", { retainPartial: true });
+		});
+		when("typing two characters and blurring",function(){
+			input.mashKeys("12").blur();
+		});
+		then("value should be correct",function(){
+			expect(input).toHaveValue("12");
+		});
+	});
+	scenario("Empty placeholders remaining",function(){
+		given("a mask with two placeholders",function(){
+			input.mask("99");
+		});
+		when("typing one character and blurring",function(){
+			input.mashKeys("1").blur();
+		});
+		then("value should be empty",function(){
+			expect(input).toHaveValue("");
+		});
+	});
+});
+
 feature("Focusing A Masked Input",function(){
 	scenario("Mask starts with a placeholder",function(){
 		given("a mask beginning with a placeholder",function(){
@@ -68,7 +93,6 @@ feature("Focusing A Masked Input",function(){
 			expect(input).toHaveValue("1_");
 		});
 	});
-
 	scenario("Mask containing optional mask ?",function(){
 		given("the input has a partial value",function(){
 			input.val("99");

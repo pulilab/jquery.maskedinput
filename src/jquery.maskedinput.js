@@ -343,8 +343,10 @@ $.fn.extend({
 					if (settings.autoclear || buffer.join('') === defaultBuffer) {
 						// Invalid value. Remove it and replace it with the
 						// mask, which is the default behavior.
-						if(input.val()) input.val("");
-						clearBuffer(0, len);
+						if (! settings.retainPartial) {
+							input.val("");
+							clearBuffer(0, len);
+						}
 					} else {
 						// Invalid value, but we opt to show the value to the
 						// user and allow them to correct their mistake.
