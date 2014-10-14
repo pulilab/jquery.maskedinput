@@ -5,6 +5,7 @@
   "authors": [
     "Josh Bush (digitalbush.com)"
   ],
+  "main": "dist/jquery.maskedinput.js",
   "description": "jQuery Masked Input Plugin",
   "moduleType": [
     "es6"

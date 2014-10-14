@@ -142,7 +142,7 @@
                             break;
                         }
                     } else buffer[i] === test.charAt(pos) && i !== partialPosition && (pos++, lastMatch = i);
-                    return allow ? writeBuffer() : partialPosition > lastMatch + 1 ? settings.autoclear || buffer.join("") === defaultBuffer ? (input.val() && input.val(""), 
+                    return allow ? writeBuffer() : partialPosition > lastMatch + 1 ? settings.autoclear || buffer.join("") === defaultBuffer ? settings.retainPartial || (input.val(""), 
                     clearBuffer(0, len)) : writeBuffer() : (writeBuffer(), input.val(input.val().substring(0, lastMatch + 1))), 
                     partialPosition ? i : firstNonMaskPos;
                 }
